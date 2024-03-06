@@ -1,1 +1,6 @@
 <h1>Choose your interests:</h1>
+
+<%= form_for @user_interest do |f| %>
+  <%= f.collection_check_boxes :interest_id, @interests, :id, :name, multiple: true, include_hidden: false %>
+  <%= f.submit %>
+<% end %>
