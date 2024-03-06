@@ -1,50 +1,33 @@
 <div class="container">
 
-
-
-  <div class="profile-banner">
-    <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
     <div class="profile-image-container">
       <img class="profile-image" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" alt="Change your image">
       <i class="plus-icon fa-solid fa-circle-plus"></i>
 
-    <div class="d-flex">
-      <div class="user-infos">
+    </div>
+
+    <div>
+      <div style="text-align: center;">
         <h4 class="profile-name"><%= @user.user_name.capitalize %></h4>
         <h6><%= @user.email %></h6>
         <p><%= @user.address %></p>
-        <div>
-          <h5>About me <br><%= @user.description %></h5>
+        <h4 class="mb-3">My Interests</h4>
+      </div>
+      <div class="user-added-interest d-flex flex-wrap mb-3">
+        <% @user_interests.each do |user_interest| %>
+          <a href="#" class="btn btn-sm button-1 mb-2 me-2"><%= user_interest.interest.name %></a>
+        <% end %>
+      </div>
+
+      <div>
+          <h5>About me :</h5>
+        <div class="user-infos">
+          <p><%= @user.description %></p>
         </div>
-
-      </div>
-
-      <div class="user-added-interest">
-        <a href="#" class="btn btn-sm interest-button mb-2 me-2">Swimming</a>
-        <a href="#" class="btn btn-sm interest-button mb-2 me-2">Travel</a>
-        <a href="#" class="btn btn-sm interest-button mb-2 me-2">Music</a>
-        <a href="#" class="btn btn-sm interest-button mb-2 me-2">Dancing</a>
-        <a href="#" class="btn btn-sm interest-button mb-2 me-2">Nail polish party</a>
-        <a href="#" class="btn btn-sm interest-button mb-2 me-2">Fitness</a>
-        <a href="#" class="btn btn-sm interest-button mb-2 me-2">Cycling</a>
-        <a href="#" class="btn btn-sm interest-button mb-2 me-2">Hiking</a>
-
-      </div>
-
-    </div>
-
-
-    
-      <div>
-        <a href="#" class="btn btn-sm btn-primary">Add interest</a>
       </div>
     </div>
-  </div>
-
-
-      <div>
-        <a href="#" class="btn btn-sm btn-primary">Add interest</a>
-      </div>
-
+    <div style="text-align: center;">
+      <a href="#" class="btn btn-sm btn-primary">Add interest</a>
+    </div>
 
 </div>

@@ -6,6 +6,6 @@ class PagesController < ApplicationController
 
   def profile
     @user = current_user
+    @user_interests = UserInterest.where(user_id: current_user)
   end
-  
 end

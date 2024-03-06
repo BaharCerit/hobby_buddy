@@ -1,8 +1,8 @@
 .plus-icon {
   color: rgb(220, 180, 37);
   position: absolute;
-  left: 360px;
-  bottom: 440px;
+  right: 607px;
+  top: 252px;
   transform: translate(50%, 50%);
   font-size: 40px;
 }
@@ -16,10 +16,8 @@
   margin-bottom: 20px;
   margin-top: 30px;
   position: relative;
-  position: absolute;
   object-fit: cover;
-  left: 150px;
-  bottom: 350px;
+  align-items: center;
 }
 
 .profile-name {
@@ -28,46 +26,13 @@
   margin-bottom: 20px;
 }
 
-.profile-banner {
-  overflow: hidden;
-  background: white;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  position: relative;
-}
-
-.profile-banner > img {
-  height: 250px;
+.user-infos {
+  background-color: $bisque-orange;
   width: 100%;
-  object-fit: cover;
-  position: relative;
+  min-height: 200px;
+  border-radius: 10px;
+  font-size: 20px;
+  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
-.profile-banner .profile-image-container {
-  padding: 150px;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
-}
-
-.profile-image-container .profile-banner-user {
-  position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
-  height: 200px;
-  display: flex;
-}
-
-.user-infos > h4,
-h5 {
-  border-bottom: solid 1px $maire;
-  display: flexbox;
-}
-
-.user-added-interest {
-  // width: 400px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
