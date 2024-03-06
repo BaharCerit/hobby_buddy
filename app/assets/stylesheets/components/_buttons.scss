@@ -1,0 +1,72 @@
+.btn-primary {
+  text-decoration: none;
+  border: 1px solid $safety-orange;
+  color: $black;
+  background-color: $white;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.button-2 {
+  text-decoration: none;
+  color: $black;
+  background-color: $hawkes-blue;
+  border: 1px solid $black;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.button-3 {
+  text-decoration: none;
+  color: $maire;
+  background-color: $white;
+  border: 1px solid $safety-orange;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.interest-button{
+  text-decoration: none;
+  color: $link-water;
+  background-color: $white;
+  border: 2px solid $hawkes-gray;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  &:hover {
+    color: $dark-link-water;
+    border: 1px solid $dark-hawkes-gray;
+    opacity: 1;
+  }
+}
+
+.interest-button-selected {
+  color: $safety-orange;
+  border-color: $safety-orange;
+
+  &:hover {
+    color: $safety-orange;
+    border-color: $safety-orange;
+    opacity: 1;
+  }
+}

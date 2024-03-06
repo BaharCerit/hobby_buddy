@@ -1,0 +1,36 @@
+.chatroom {
+  background: white;
+  margin-top: 9px;
+  height: calc(100vh - 75px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+
+  h1 {
+    border-bottom: 1px solid $gray-200;
+    margin-bottom: 0;
+    padding: 1rem;
+  }
+
+  .messages {
+    height: 100%;
+    overflow: scroll;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  .message {
+    align-self: flex-start;
+    margin-bottom: 10px;
+    background-color: $hawkes-gray;
+    border-radius: 30px 30px 30px 4px;
+  }
+
+  .sent-message {
+    align-self: flex-end;
+    background-color: $bisque-orange;
+    border-radius: 30px 4px 30px 30px;
+  }
+
+}
