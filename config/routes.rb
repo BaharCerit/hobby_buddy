@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
   get "profile", to: "pages#profile"
 
+  get "/find-buddies", to: "pages#find_buddies"
   # Defines the root path route ("/")
   # root "posts#index"
 end
