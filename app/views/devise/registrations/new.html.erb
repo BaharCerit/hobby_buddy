@@ -8,6 +8,10 @@
                 required: true,
                 autofocus: true,
                 input_html: { autocomplete: "email" }%>
+    <%= f.input :user_name,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "user_name" }%>
     <%= f.input :password,
                 required: true,
                 hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
@@ -15,6 +19,15 @@
     <%= f.input :password_confirmation,
                 required: true,
                 input_html: { autocomplete: "new-password" } %>
+    <%= f.input :address,
+                required: true,
+                autofocus: true,
+                input_html: { autocomplete: "address" }%>
+    <%= f.input :description,
+                required: true,
+                label: "Bio",
+                autofocus: true,
+                input_html: { autocomplete: "description" }%>
   </div>
 
   <div class="form-actions">
