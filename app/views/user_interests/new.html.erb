@@ -1,8 +1,1 @@
 <h1>Choose your interests:</h1>
-<%= form_for @post do |f| %>
-
-  <%= fields_for :tags |tag_fields| %>
-    <%= tag_fields.label :select_tags %>
-    <%= tag_fields.select :tags, Tag.all, {}, multiple: true %>
-  <% end %>
-<% end %>
