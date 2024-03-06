@@ -1,12 +1,25 @@
 .btn-primary {
   text-decoration: none;
+  border: 1px solid $maire;
+  color: $white;
+  background-color: $safety-orange;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  transition: opacity 0.3s ease;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.button-1 {
+  text-decoration: none;
   border: 1px solid $safety-orange;
-  color: $black;
+  color: $maire;
   background-color: $white;
   padding: 8px 24px;
   border-radius: 50px;
   font-weight: lighter;
-  opacity: 0.6;
   transition: opacity 0.3s ease;
   &:hover {
     opacity: 1;
@@ -43,7 +56,7 @@
   }
 }
 
-.interest-button{
+.interest-button {
   text-decoration: none;
   color: $link-water;
   background-color: $white;
