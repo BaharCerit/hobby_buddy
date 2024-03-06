@@ -19,11 +19,21 @@ Interest.create(name: "Music")
 Interest.create(name: "Dancing")
 Interest.create(name: "Fitness")
 Interest.create(name: "Nail polish party")
+Interest.create(name: "Hiking")
+Interest.create(name: "Cycling")
+Interest.create(name: "Camping")
+Interest.create(name: "Fishing")
+Interest.create(name: "Photography")
+Interest.create(name: "Climbing")
+Interest.create(name: "Soccer")
+Interest.create(name: "Basketball")
+Interest.create(name: "Skating")
+Interest.create(name: "Snowboarding")
 
 puts "create users..."
 
 
-20.times do
+10.times do
   new_user = User.create!(
     email: Faker::Internet.email,
     password: "123456",
