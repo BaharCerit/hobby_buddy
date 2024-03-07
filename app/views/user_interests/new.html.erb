@@ -1,0 +1,5 @@
+<h1>Choose your interests:</h1>
+<%= simple_form_for @user_interest do |f| %>
+  <%= f.input :interest,as: :check_boxes, :collection => @interests,:label_method => :name,:value_method => :id,:label => "Interest" ,:include_hidden => false %>
+  <%= f.button :submit %>
+<%end%>
