@@ -10,7 +10,6 @@ UserInterest.destroy_all
 Interest.destroy_all
 User.destroy_all
 
-
 puts "create interests..."
 
 Interest.create(name: "Swimming")
@@ -52,7 +51,9 @@ User.create(user_name: "Loes van Puijenbroek" ,address: "amersfort", email: "loe
 User.create(user_name: "Romee Weltevreden" ,address: "amsterdam", email: "romee@gmail.com", password: "123456", description: "I have previous work experience as a Digital Process Consultant and RPA Developer, through which I realized my interest in building and creating things. During this time I did a few free coding courses before deciding to take the leap and look for a full-time coding course. I am interested in becoming a front-end/back-end/full-stack developer after this." )
 
 2.times do
-  UserInterest.create(user: new_user, interest: Interest.all.sample)
+  User.all.each do |user|
+    UserInterest.create(user: user, interest: Interest.all.sample)
+  end
 end
 
 Match.create(first_user: User.first, second_user: User.last, status: false)
