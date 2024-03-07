@@ -1,0 +1,25 @@
+<h1>this chatrooms index</h1>
+<div class="container">
+<%= @chatrooms.count %>
+
+<% @chatrooms.each do |chatroom| %>
+  <div class="notification message-2">
+
+    <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
+    <div class="notification-content">
+      <p><small><%= chatroom.other(current_user).user_name %></small></p>
+
+      <p>last message</p>
+    </div>
+
+    <div class="notification-actions">
+      <%= link_to chatroom_path(chatroom) do %>
+        <i class='fa-solid fa-chevron-right'></i>
+      <% end %>
+      <a href="#"> <i class="fa-solid fa-chevron-right"></i></a>
+    </div>
+  </div>
+
+<% end %>
+
+</div>
