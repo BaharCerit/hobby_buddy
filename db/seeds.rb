@@ -10,7 +10,6 @@ UserInterest.destroy_all
 Interest.destroy_all
 User.destroy_all
 
-
 puts "create interests..."
 
 Interest.create(name: "Swimming")
