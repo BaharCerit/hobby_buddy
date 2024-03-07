@@ -7,10 +7,17 @@ class User < ApplicationRecord
 
   has_many :user_interests
   has_many :interests, through: :user_interests, dependent: :destroy
+  # has_many :matches
+  # has_many :chatrooms, through: :matches
+
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :user_name, presence: true, uniqueness: true
-  validates :description, presence: true, length: { minimum:30, maximum: 500}
+  validates :description, presence: true, length: { minimum: 30, maximum: 500 }
   validates :address, presence: true
+
+  def matches
+    Match.where("first_user_id = ? OR second_user_id = ?", self.id, self.id)
+  end
 end

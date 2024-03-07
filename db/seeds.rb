@@ -11,7 +11,6 @@ UserInterest.destroy_all
 Interest.destroy_all
 User.destroy_all
 
-
 puts "create interests..."
 
 Interest.create(name: "Swimming")
@@ -64,9 +63,11 @@ end
   user.save
 end
 
-# 2.times do
-#   UserInterest.create(user: new_user, interest: Interest.all.sample)
-# end
+2.times do
+  User.all.each do |user|
+    UserInterest.create(user: user, interest: Interest.all.sample)
+  end
+end
 
 Match.create(first_user: User.first, second_user: User.last, status: false)
 Match.create(first_user: User.all[-2], second_user: User.all[2], status: false)
