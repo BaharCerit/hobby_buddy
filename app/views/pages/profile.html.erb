@@ -4,6 +4,10 @@
       <img class="profile-image" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" alt="Change your image">
       <i class="plus-icon fa-solid fa-circle-plus"></i>
 
+      <%= simple_form_for(edit_user_registration_path) do |f| %>
+      <%= f.input :photo, as: :file %>
+      <%= f.button :submit, "Save" %>
+      <% end %>
     </div>
 
     <div>

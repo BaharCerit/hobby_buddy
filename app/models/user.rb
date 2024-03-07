@@ -3,6 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :first_user_matches, class_name: 'Match', foreign_key: 'first_user_id'
   has_many :second_user_matches, class_name: 'Match', foreign_key: 'second_user_id'
+  has_one_attached :photo
 
   has_many :user_interests
   has_many :interests, through: :user_interests, dependent: :destroy
