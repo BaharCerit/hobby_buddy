@@ -1,0 +1,16 @@
+.navbarfooter {
+  background: #b9c1d3;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  width: 100%;
+  padding: 0px 50px;
+  color: rgba(0,0,0,0.3);
+}
+.navbarfooter-links {
+  display: flex;
+  align-items: center;
+  padding: 100px 50px;}
