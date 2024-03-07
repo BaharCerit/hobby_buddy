@@ -2,8 +2,15 @@
 <div class="container">
   <h4 class="mt-3"> You have <strong><%= @chatrooms.count %></strong>  Messages</h4>
 
-  <% @chatrooms.each do |chatroom| %>
-    <div class="notification message-2 mb-2">
+
+    <div class="background">
+      <%# this for background image, needs to be STAY HERE! %>
+    </div>
+
+
+  <% @chatrooms.each_with_index do |chatroom, index| %>
+    <% message_class = index.even? ? "message-1" : "message-2" %>
+    <div class="notification <%= message_class %> mb-2">
 
       <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
       <div class="notification-content">
