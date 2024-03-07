@@ -1,10 +1,30 @@
+<div class="container">
+  <div data-controller="swipe">
+    <div class="tinder">
+      <div class="tinder--status">
+        <i class="fa fa-remove"></i>
+        <i class="fa fa-heart"></i>
+      </div>
 
-<%  @users.each do |user| %>
-  <div class="card mb-2">
-      <img src="https://kitt.lewagon.com/placeholder/users/sarahlafer">
-      <div class="">
-      <h2> <%= user.user_name %></h2>
-      <p><%= user.address %></p>
+    <%  @users.each do |user| %>
+
+
+      <div class="tinder--cards">
+        <div class="tinder--card">
+          <img src="https://kitt.lewagon.com/placeholder/users/sarahlafer">
+          <h2> <%= user.user_name %></h2>
+          <p><%= user.address %></p>
+        </div>
+      </div>
+
+    <% end %>
+
+
+      <div class="tinder--buttons">
+        <button id="nope"><i class="fa fa-remove"></i></button>
+        <button id="love"><i class="fa fa-heart"></i></button>
+      </div>
+
     </div>
   </div>
-<% end %>
+</div>
