@@ -1,25 +1,24 @@
-<h1>this chatrooms index</h1>
+
 <div class="container">
-<%= @chatrooms.count %>
+  <h4 class="mt-3"> You have <strong><%= @chatrooms.count %></strong>  Messages</h4>
 
-<% @chatrooms.each do |chatroom| %>
-  <div class="notification message-2">
+  <% @chatrooms.each do |chatroom| %>
+    <div class="notification message-2">
 
-    <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
-    <div class="notification-content">
-      <p><small><%= chatroom.other(current_user).user_name %></small></p>
+      <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
+      <div class="notification-content">
+        <p><small><%= chatroom.other(current_user).user_name %></small></p>
 
-      <p>last message</p>
+        <p>last message</p>
+      </div>
+
+      <div class="notification-actions">
+        <%= link_to chatroom_path(chatroom) do %>
+          <i class='fa-solid fa-chevron-right'></i>
+        <% end %>
+      </div>
     </div>
 
-    <div class="notification-actions">
-      <%= link_to chatroom_path(chatroom) do %>
-        <i class='fa-solid fa-chevron-right'></i>
-      <% end %>
-      <a href="#"> <i class="fa-solid fa-chevron-right"></i></a>
-    </div>
-  </div>
-
-<% end %>
+  <% end %>
 
 </div>
