@@ -1,106 +1,132 @@
 import { Controller } from "@hotwired/stimulus"
 import Hammer from "hammerjs"
+import Swal from "sweetalert2"
 
 // Connects to data-controller="swipe"
 export default class extends Controller {
+  static targets = ["swipeCard", "button", "likeForm", "dislikeForm", "icon",
+                    "like", "nope"]
+  static values = {
+    profile: Number
+  }
+
   connect() {
-    'use strict';
+    this.swipeCardTargets.forEach((card, index) => {
+      const hammertime = new Hammer(card);
+      card.style.zIndex = this.swipeCardTargets.length - index;
 
-    var tinderContainer = document.querySelector('.tinder');
-    var allCards = document.querySelectorAll('.tinder--card');
-    var nope = document.getElementById('nope');
-    var love = document.getElementById('love');
+      hammertime.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+      hammertime.get('pinch').set({ enable: false });
 
-    function initCards(card, index) {
-      var newCards = document.querySelectorAll('.tinder--card:not(.removed)');
+      //  On panstart, check the angle to identify swipe vs. scroll (Hammerjs issue)
+      hammertime.on('panstart', (event) => {
 
-      newCards.forEach(function (card, index) {
-        card.style.zIndex = allCards.length - index;
-        card.style.transform = 'scale(' + (20 - index) / 20 + ') translateY(-' + 30 * index + 'px)';
-        card.style.opacity = (10 - index) / 10;
-      });
+        card.classList.add('moving')
 
-      tinderContainer.classList.add('loaded');
-    }
+        // Get initial angle
+        let angle = Math.abs(event.angle);
 
-    initCards();
+        if (angle > 150 || angle < 30) {
 
-    allCards.forEach(function (el) {
-      var hammertime = new Hammer(el);
-
-      hammertime.on('pan', function (event) {
-        el.classList.add('moving');
-      });
-
-      hammertime.on('pan', function (event) {
-        if (event.deltaX === 0) return;
-        if (event.center.x === 0 && event.center.y === 0) return;
-
-        tinderContainer.classList.toggle('tinder_love', event.deltaX > 0);
-        tinderContainer.classList.toggle('tinder_nope', event.deltaX < 0);
-
-        var xMulti = event.deltaX * 0.03;
-        var yMulti = event.deltaY / 80;
-        var rotate = xMulti * yMulti;
-
-        event.target.style.transform = 'translate(' + event.deltaX + 'px, ' + event.deltaY + 'px) rotate(' + rotate + 'deg)';
-      });
-
-      hammertime.on('panend', function (event) {
-        el.classList.remove('moving');
-        tinderContainer.classList.remove('tinder_love');
-        tinderContainer.classList.remove('tinder_nope');
-
-        var moveOutWidth = document.body.clientWidth;
-        var keep = Math.abs(event.deltaX) < 80 || Math.abs(event.velocityX) < 0.5;
-
-        event.target.classList.toggle('removed', !keep);
-
-        if (keep) {
-          event.target.style.transform = '';
-        } else {
-          var endX = Math.max(Math.abs(event.velocityX) * moveOutWidth, moveOutWidth);
-          var toX = event.deltaX > 0 ? endX : -endX;
-          var endY = Math.abs(event.velocityY) * moveOutWidth;
-          var toY = event.deltaY > 0 ? endY : -endY;
-          var xMulti = event.deltaX * 0.03;
-          var yMulti = event.deltaY / 80;
-          var rotate = xMulti * yMulti;
-
-          event.target.style.transform = 'translate(' + toX + 'px, ' + (toY + event.deltaY) + 'px) rotate(' + rotate + 'deg)';
-          initCards();
+          // If angle corresponds to a swipe, add event listener on pan to handle translate motion of card
+          hammertime.on('pan', (event) => {
+            let angle = Math.abs(event.angle);
+            if (angle > 150 || angle < 30) {
+              card.style.transform = "translate(" + event.deltaX + "px, 0)";
+              // Add floating icons
+            if (event.deltaX === 0) {
+              this.likeTarget.classList.add('gone');
+              this.nopeTarget.classList.add('gone');
+            } else if (event.deltaX > 50 ) {
+              this.likeTarget.classList.remove('gone');
+              this.nopeTarget.classList.add('gone');
+            } else if (event.deltaX < -50 ) {
+              this.nopeTarget.classList.remove('gone');
+              this.likeTarget.classList.add('gone');
+            }
+            }
+          })
         }
       });
+
+      // Event listener on panend for release (remove icons, make card disappear and trigger swipe actions)
+      hammertime.on('panend', (event) => {
+        this.likeTarget.classList.add('gone');
+        this.nopeTarget.classList.add('gone');
+        if ( event.deltaX > 200) {
+          card.classList.add("d-none");
+          this.#swipeRight()
+
+        } else if ( event.deltaX < -200) {
+          card.classList.add("d-none");
+          this.#swipeLeft()
+        }
+        card.style.transform = '';
+      })
     });
+  }
 
-    function createButtonListener(love) {
-      return function (event) {
-        var cards = document.querySelectorAll('.tinder--card:not(.removed)');
-        var moveOutWidth = document.body.clientWidth * 1.5;
+  #swipeRight() {
+    const visibleCard = this.swipeCardTargets.filter((card) => {
+      return card.classList.contains("d-none")
+    })
 
-        if (!cards.length) return false;
+    const index = visibleCard.length - 1
 
-        var card = cards[0];
 
-        card.classList.add('removed');
+    fetch(this.likeFormTarget.action, {
+        method: "POST",
+        headers: {"Accept": "text/plain"},
+        body: new FormData(this.likeFormTargets[index])
+      }).then(response => response.text())
+        .then(async (data) => {
+          console.log(data)
+        // if (data.status === "accepted") {
+          // const { value: text } = await Swal.fire({
+          //   title: "It's a match! 🎉",
+          //   html: `Write a message to <b>${data.profile}</b>`,
+          //   // icon: "success",
+          //   input: "text",
+          //   showCloseButton: true,
+          //   confirmButtonText: "Send",
+          //   confirmButtonColor: "#32573C"
+          // });
+          // if (text){
+            // Swal.fire({text: "Message sent!", icon: "success", showCloseButton: true, showConfirmButton: false});
+            // this.#sendMsg(text, data)
+          // }
+        // }
+      })
+  }
 
-        if (love) {
-          card.style.transform = 'translate(' + moveOutWidth + 'px, -100px) rotate(-30deg)';
-        } else {
-          card.style.transform = 'translate(-' + moveOutWidth + 'px, -100px) rotate(30deg)';
-        }
 
-        initCards();
+  // #sendMsg(text, data){
+  //   const csrf = document.querySelector('meta[name=csrf-token]').content
+  //   const requestBody = JSON.stringify( {match_id: data.match_id, content: text})
 
-        event.preventDefault();
-      };
-    }
+  //   fetch(`/pop_up_message`, {
+  //     method: "POST",
+  //     headers: {
+  //       "Accept": "application/json",
+  //       "X-CSRF-Token": csrf,
+  //       "Content-Type": "application/json"
+  //   },
+  //     body: requestBody
+  //   })
+  //   .then(response => {
+  //     response.json
+  //   })
+  //   .then(data => {
+  //     // console.log(data,"something fun")
+  //   })
+  // }
 
-    var nopeListener = createButtonListener(false);
-    var loveListener = createButtonListener(true);
-
-    nope.addEventListener('click', nopeListener);
-    love.addEventListener('click', loveListener);
-
+  #swipeLeft() {
+    fetch(this.dislikeFormTarget.action, {
+        method: "POST",
+        headers: {"Accept": "text/plain"},
+        body: new FormData(this.dislikeFormTarget )
+      }
+    )
   }
 }
