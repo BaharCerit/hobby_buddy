@@ -63,7 +63,7 @@ end
   user.save
 end
 
-2.times do
+4.times do
   User.all.each do |user|
     UserInterest.create(user: user, interest: Interest.all.sample)
   end
