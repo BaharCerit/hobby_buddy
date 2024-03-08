@@ -14,16 +14,28 @@
 
       <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/>
       <div class="notification-content">
-        <p><small><%= chatroom.other(current_user).user_name %></small></p>
-
-        <p>last message</p>
+        <% if chatroom.present? %>
+          <p><small><%= chatroom.other(current_user)&.user_name || "Unknown User" %></small></p>
+          <p>last message</p>
+        <% else %>
+          <p>No chatrooms found</p>
+          <p><small>Unknown User</small></p>
+        <% end %>
       </div>
 
       <div class="notification-actions">
-        <%= link_to chatroom_path(chatroom) do %>
-          <i class='fa-solid fa-chevron-right'></i>
+        <% if chatroom.present? %>
+          <%= link_to chatroom_path(chatroom) do %>
+            <i class='fa-solid fa-chevron-right'></i>
+          <% end %>
         <% end %>
       </div>
+
+
+
+
+
+
     </div>
 
   <% end %>
