@@ -73,9 +73,10 @@ export default class extends Controller {
 
     const index = visibleCard.length - 1
 
+
     fetch(this.likeFormTarget.action, {
         method: "POST",
-        headers: {"Accept": "application/text"},
+        headers: {"Accept": "text/plain"},
         body: new FormData(this.likeFormTargets[index])
       }).then(response => response.text())
         .then(async (data) => {
@@ -123,7 +124,7 @@ export default class extends Controller {
   #swipeLeft() {
     fetch(this.dislikeFormTarget.action, {
         method: "POST",
-        headers: {"Accept": "application/json"},
+        headers: {"Accept": "text/plain"},
         body: new FormData(this.dislikeFormTarget )
       }
     )

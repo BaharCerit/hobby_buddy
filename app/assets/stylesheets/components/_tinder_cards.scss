@@ -89,6 +89,13 @@
   cursor: grabbing;
 }
 
+.img-card {
+  height: 300px;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
 .loaded.profiles-all {
   opacity: 1;
 }
