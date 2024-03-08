@@ -8,17 +8,6 @@
     <div class="single-card"
       data-swipe-target="swipeCard" data-swipe-profile-value=<%= user.id %>>
 
-      <%  @users.each do |user| %>
-
-        <div class="tinder--cards">
-          <div class="tinder--card">
-            <img src="https://kitt.lewagon.com/placeholder/users/sarahlafer">
-            <h2> <%= user.user_name %></h2>
-            <p><%= user.address %></p>
-          </div>
-        </div>
-
-      <% end %>
       <div class="profile-card">
         <div class="img-card" style="background-image: url('<%= cl_image_path(user.photo.key) if user.photo.attached? %>');">
         </div>
