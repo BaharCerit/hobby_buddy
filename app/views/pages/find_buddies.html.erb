@@ -6,18 +6,17 @@
         <i class="fa fa-heart"></i>
       </div>
 
-    <%  @users.each do |user| %>
+      <%  @users.each do |user| %>
 
-
-      <div class="tinder--cards">
-        <div class="tinder--card">
-          <img src="https://kitt.lewagon.com/placeholder/users/sarahlafer">
-          <h2> <%= user.user_name %></h2>
-          <p><%= user.address %></p>
+        <div class="tinder--cards">
+          <div class="tinder--card">
+            <img src="https://kitt.lewagon.com/placeholder/users/sarahlafer">
+            <h2> <%= user.user_name %></h2>
+            <p><%= user.address %></p>
+          </div>
         </div>
-      </div>
 
-    <% end %>
+      <% end %>
 
 
       <div class="tinder--buttons">
