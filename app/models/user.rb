@@ -12,4 +12,8 @@ class User < ApplicationRecord
   validates :user_name, presence: true, uniqueness: true
   validates :description, presence: true, length: { minimum:30, maximum: 500}
   validates :address, presence: true
+
+  def has_interest?(interest)
+    self.interests.include?(interest)
+  end
 end
