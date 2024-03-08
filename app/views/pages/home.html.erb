@@ -1,6 +1,19 @@
-<%# <div class="navbar navbar-expand-sm navbar-light navbar-lewagon"> %>
-<h1>HobbyBuddy</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<%= link_to "Sign in", new_user_session_path %>
-<%= link_to "Sign up", new_user_registration_path %>
-<%# </div> %>
+<div class="container">
+  <div style="text-align: center;">
+    <h1>HobbyBuddy</h1>
+     <p>Connect with people who have same interests.
+        Find new friends and improve your skills together🚴🚴</p>
+      <div class="banner home-banner" style="background-image: url(<%= asset_path('banner.jpg') %>);">
+      </div>
+        <a class="btn btn-sm button-1" href="/users/sign_in">Sign in</a>
+        <a class="btn btn-sm btn-primary" href="/users/sign_up">Sign up</a>
+  </div>
+</div>
+
+<%# <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
+    <p>Change your life and learn to code at one of our campuses around the world.</p>
+    <a class="btn btn-flat" href="#">Apply now</a>
+  </div>
+</div> %>

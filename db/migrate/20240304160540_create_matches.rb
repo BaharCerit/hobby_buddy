@@ -3,7 +3,7 @@ class CreateMatches < ActiveRecord::Migration[7.1]
     create_table :matches do |t|
       t.references :first_user, null: false
       t.references :second_user, null: false
-      t.boolean :status, default: false
+      t.string :status, default: "pending"
 
       t.timestamps
     end
