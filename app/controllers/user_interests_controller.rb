@@ -5,10 +5,16 @@ class UserInterestsController < ApplicationController
   end
 
   def create
-    interests = params[:user_interest][:interest]
-    interests.each do |interest_id|
-      new_interest = UserInterest.new(interest_id:, user: current_user)
+    # @interests = Interest.all
+    current_user.user_interests.destroy_all
+
+    interest_ids = params[:user_interest][:interest]
+    interest_ids.each do |interest_id|
+      new_interest = UserInterest.new(interest_id: interest_id, user: current_user)
       new_interest.save!
     end
+
+    redirect_to profile_path
   end
 end
+
