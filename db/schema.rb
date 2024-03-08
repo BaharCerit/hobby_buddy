@@ -58,7 +58,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_07_110621) do
   create_table "matches", force: :cascade do |t|
     t.bigint "first_user_id", null: false
     t.bigint "second_user_id", null: false
-    t.boolean "status", default: false
+    t.string "status", default: "pending"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["first_user_id"], name: "index_matches_on_first_user_id"

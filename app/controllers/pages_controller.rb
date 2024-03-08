@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   end
 
   def find_buddies
+    @match = Match.new
     interests = current_user.interests if current_user
     @users = User.joins(:interests).where(interests: { id: interests }).where.not(id: current_user.id).distinct
   end
