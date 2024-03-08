@@ -4,7 +4,8 @@ class MatchesController < ApplicationController
     @profile_id = params[:match][:profile]
 
     if @form_type == "like"
-      Match.create(first_user_id: current_user.id, second_user_id: @profile_id, status: "accepted")
+      match = Match.create(first_user_id: current_user.id, second_user_id: @profile_id, status: "accepted")
+      Chatroom.create(match: match)
     else
       Match.create(first_user_id: current_user.id, second_user_id: @profile_id, status: "rejected")
     end
