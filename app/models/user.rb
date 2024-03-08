@@ -19,6 +19,8 @@ class User < ApplicationRecord
 
   def has_interest?(interest)
     self.interests.include?(interest)
+  end
+  
   def matches
     Match.where("first_user_id = ? OR second_user_id = ?", self.id, self.id)
   end

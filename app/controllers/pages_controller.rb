@@ -9,7 +9,7 @@ class PagesController < ApplicationController
     @users = User.joins(:interests).where(interests: { id: interests }).where.not(id: current_user.id).distinct
    end
 
-    def profile
+  def profile
     @user = current_user
     @user_interests = UserInterest.where(user_id: current_user)
   end
