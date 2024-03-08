@@ -9,3 +9,4 @@ pin "bootstrap", to: "bootstrap.min.js", preload: true
 pin "@popperjs/core", to: "popper.js", preload: true
 
 pin "@rails/actioncable", to: "@rails--actioncable.js" # @7.1.3
+pin "hammerjs" # @2.0.8
