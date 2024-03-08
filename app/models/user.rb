@@ -17,6 +17,8 @@ class User < ApplicationRecord
   validates :description, presence: true, length: { minimum: 30, maximum: 500 }
   validates :address, presence: true
 
+  def has_interest?(interest)
+    self.interests.include?(interest)
   def matches
     Match.where("first_user_id = ? OR second_user_id = ?", self.id, self.id)
   end

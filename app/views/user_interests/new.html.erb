@@ -1,5 +1,12 @@
 <h1>Choose your interests:</h1>
 <%= simple_form_for @user_interest do |f| %>
-  <%= f.input :interest,as: :check_boxes, :collection => @interests,:label_method => :name,:value_method => :id,:label => "Interest" ,:include_hidden => false %>
-  <%= f.button :submit %>
+  <% @interests.each do |interest| %>
+    <div class="form-check tag-item">
+      <input class="tag-selector form-check-input check_boxes optional" type="checkbox" value="<%= interest.id %>" name="user_interest[interest][]" id="user_interest_interest_<%= interest.id %>" <%= current_user.has_interest?(interest) ? "checked" : "" %>>
+      <label class="form-check-label collection_check_boxes" for="user_interest_interest_<%= interest.id %>"><%= interest.name %></label>
+    </div>
+  <% end %>
+<div style="height: 50px">
+  <%= f.button :submit, class: "button-1" %>
+  </div>
 <%end%>
