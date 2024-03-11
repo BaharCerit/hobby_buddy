@@ -86,6 +86,11 @@
 
 .sticky-button {
   position: sticky;
+  bottom: 90px;
+  z-index: 1000;
+}
+.sticky-button1 {
+  position: sticky;
   bottom: 70px;
   z-index: 1000;
 }

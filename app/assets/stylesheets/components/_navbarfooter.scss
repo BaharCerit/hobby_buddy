@@ -5,11 +5,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 50px;
+  height: 70px;
   width: 100%;
   padding: 0px 50px;
   color: rgba(0,0,0,0.3);
-  margin-top: auto; /* Push the footer to the bottom */
+  margin-top: auto;
   position: sticky;
   bottom: 0px;
   z-index: 1000;
@@ -26,4 +26,9 @@ body {
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
+}
+
+.navbar-icon {
+  color: #5c5a5a;
+  font-size: 24px;
 }
