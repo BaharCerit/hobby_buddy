@@ -42,6 +42,7 @@ class MatchesController < ApplicationController
   def swipe_right(profile_id)
     user_has_swiped(profile_id).nil? ? handle_initial_swipe_right(profile_id) : handle_its_a_match
     @match.save!
+    Chatroom.create(match: @match)
     return @match
     # respond_to do |format|
     #   # profile = Profile.find(profile_id)
