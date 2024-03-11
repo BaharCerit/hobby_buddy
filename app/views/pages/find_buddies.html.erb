@@ -11,14 +11,26 @@
       <div class="profile-card">
         <div class="img-card" style="background-image: url('<%= cl_image_path(user.photo.key) if user.photo.attached? %>');">
         </div>
-          <div class="div"></div>
-          <div class="profile-description m-4">
-            <div class="name">
-              <div class="name-title"><%= user.user_name%></div>
-              <p class="p"><%= user.address %></p>
-              <p class="p"><%= user.description %></p>
+        <div class="profile-description m-4">
+          <div class="name">
+            <div class="name-title mb-4"><%= user.user_name%></div>
+            <div>
+              <% if @user_interests.present? %>
+                <div class="user-added-interest d-flex flex-wrap mb-3">
+                  <% @user_interests.each do |user_interest| %>
+                    <a href="#" class="btn btn-sm interest-button mb-2 me-2"><%= user_interest.interest.name %></a>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+
+            <div class="see-details d-flex justify-content-end position-absolute bottom-10 end-10">
+              <%= link_to "See Details", buddy_profile_path(user), class: "btn btn-sm btn-primary" %>
+            </div>
           </div>
-      </div>
+
+
+        </div>
           <div class="d-flex justify-content-between position-absolute">
             <%= simple_form_for @match, data: { swipe_target: "dislikeForm" },  html: { class: 'd-none' } do |f| %>
               <%= f.input :profile, as: :hidden, input_html: { value: user.id } %>
