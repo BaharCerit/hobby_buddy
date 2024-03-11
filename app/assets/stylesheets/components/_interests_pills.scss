@@ -13,14 +13,36 @@
   font-size: 0.7rem;
   border-radius: 50rem;
   padding: 0.1rem 0.5rem;
-  background-color: white;
-  color: #FF6000;
-  border: 1px solid #FF6000;
+  // background-color: white;
+  // color: #FF6000;
+  // border: 1px solid #FF6000;
+  color: $link-water;
+  background-color: $white;
+  border: 2px solid $hawkes-gray;
   margin-right: 0.6rem;
   margin-bottom: 0.4rem;
+  transition: opacity 0.3s ease;
+  &:hover {
+    color: $dark-link-water;
+    border: 1px solid $dark-hawkes-gray;
+    opacity: 1;
+  }
 }
 
 .tag-selector:checked + label {
-  background-color: #FF6000;
-  color: white;
+  // background-color: #FF6000;
+  // color: white;
+  color: $safety-orange;
+  border-color: $safety-orange;
+
+  &:hover {
+    color: $safety-orange;
+    border-color: $safety-orange;
+    opacity: 1;
+  }
+}
+
+.interest-explanation{
+  color: $dark-link-water;
+  font-size: 14px;
 }

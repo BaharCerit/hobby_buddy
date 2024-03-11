@@ -13,22 +13,18 @@ User.destroy_all
 
 puts "create interests..."
 
-Interest.create(name: "Swimming")
-Interest.create(name: "Travel")
-Interest.create(name: "Music")
-Interest.create(name: "Dancing")
-Interest.create(name: "Fitness")
-Interest.create(name: "Nail polish party")
-Interest.create(name: "Hiking")
-Interest.create(name: "Cycling")
-Interest.create(name: "Camping")
-Interest.create(name: "Fishing")
-Interest.create(name: "Photography")
-Interest.create(name: "Climbing")
-Interest.create(name: "Soccer")
-Interest.create(name: "Basketball")
-Interest.create(name: "Skating")
-Interest.create(name: "Snowboarding")
+interests = ["Swimming", "Travel", "Music", "Dancing", "Fitness", "Nail polish party", "Hiking", "Cycling", "Camping", "Coding",
+  "Fishing", "Photography", "Climbing", "Soccer", "Basketball", "Skating", "Snowboarding", "Cooking", "Reading", "Painting",
+  "Yoga", "Gardening", "Writing", "Birdwatching", "Meditation", "Volunteering", "Skiing", "Drawing", "Running", "Film", "Fashion",
+  "Knitting", "Sewing", "Pottery", "Sculpture", "Woodworking", "Calligraphy", "Origami", "Chess", "Board games", "Video games",
+  "Astronomy", "Nature walks", "Stargazing", "Star gazing",   "Cooking Classes", "Book Club", "Art Therapy", "Language Exchange", "Salsa Dancing", "Stand-up Comedy", "Barbecue", "DIY Projects", "Theater Acting", "Meditation Retreats",
+  "Photography Walks", "Cocktail Making", "Potluck Dinners", "Puzzle Solving", "Urban Exploration", "Poetry Writing", "Karaoke Night", "Karate Classes", "Nature Photography", "Hula Hooping", "Poetry Slam", "Game Nights", "Beach Volleyball", "Horseback Riding", "Wine Tasting",
+  "Rock Climbing", "Astronomy Club", "Pottery Classes", "Tai Chi Practice", "Surfing Lessons"
+]
+
+interests.each do |interest_name|
+  Interest.find_or_create_by(name: interest_name)
+end
 
 puts "create users..."
 
