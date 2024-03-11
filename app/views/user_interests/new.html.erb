@@ -1,6 +1,7 @@
 <div class="container text-center">
 
-  <h1 class="mt-4 mb-4">Choose your interests:</h1>
+  <h1 class="mt-4 mb-4">Interests</h1>
+  <p class="interest-explanation">Let everyone know what you’re interested in by adding it to your profile.</p>
   <%= simple_form_for @user_interest do |f| %>
     <% @interests.each do |interest| %>
       <div class="form-check tag-item">
@@ -10,8 +11,9 @@
     <% end %>
 
 
-    <div style="height: 50px">
-      <%= f.button :submit, class: "button-1 mt-4" %>
+    <div class="sticky-button" style="height: 50px">
+      <%= f.button :submit, "Create Profile", class: "button-1 mt-4" do %>
+      <% end %>
     </div>
   <%end%>
 </div>
