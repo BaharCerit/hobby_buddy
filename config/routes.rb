@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get "profile", to: "pages#profile"
 
   get "/find-buddies", to: "pages#find_buddies"
+  get "/profile/:id", to: "pages#show", as: :buddy_profile
 
   # Defines the root path route ("/")
   # root "posts#index"

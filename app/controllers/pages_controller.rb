@@ -8,10 +8,16 @@ class PagesController < ApplicationController
     @match = Match.new
     interests = current_user.interests if current_user
     @users = User.joins(:interests).where(interests: { id: interests }).where.not(id: current_user.id).distinct
+    @user_interests = UserInterest.where(user_id: current_user)
   end
 
   def profile
     @user = current_user
+    @user_interests = UserInterest.where(user_id: current_user)
+  end
+
+  def show
+    @user = User.find(params[:id])
     @user_interests = UserInterest.where(user_id: current_user)
   end
 end

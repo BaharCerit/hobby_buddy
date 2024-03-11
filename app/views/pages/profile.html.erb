@@ -17,11 +17,14 @@
         <p><%= @user.address %></p>
         <h4 class="mb-3">My Interests</h4>
       </div>
-      <div class="user-added-interest d-flex flex-wrap mb-3">
-        <% @user_interests.each do |user_interest| %>
-          <a href="#" class="btn btn-sm button-1 mb-2 me-2"><%= user_interest.interest.name %></a>
-        <% end %>
-      </div>
+      <% if @user_interests.present? %>
+        <div class="user-added-interest d-flex flex-wrap mb-3">
+          <% @user_interests.each do |user_interest| %>
+            <a href="#" class="btn btn-sm button-1 mb-2 me-2"><%= user_interest.interest.name %></a>
+          <% end %>
+
+        </div>
+      <% end %>
 
       <div>
           <h5>About me :</h5>
