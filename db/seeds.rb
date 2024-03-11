@@ -64,13 +64,13 @@ end
   end
 end
 
-Match.create(first_user: User.first, second_user: User.last, status: "pending")
-Match.create(first_user: User.all[-2], second_user: User.all[2], status: "rejected")
-Match.create(first_user: User.all[15], second_user: User.all[17], status: "accepted")
+# Match.create(first_user: User.first, second_user: User.last, status: "pending")
+# Match.create(first_user: User.all[-2], second_user: User.all[2], status: "rejected")
+# Match.create(first_user: User.all[15], second_user: User.all[17], status: "accepted")
 
-Chatroom.create(match: Match.last)
+# Chatroom.create(match: Match.last)
 
-Message.create(content: "Hello!", chatroom: Chatroom.last, user: User.all[15])
-Message.create(content: "Hi :)", chatroom: Chatroom.last, user: User.all[17])
+# Message.create(content: "Hello!", chatroom: Chatroom.last, user: User.all[15])
+# Message.create(content: "Hi :)", chatroom: Chatroom.last, user: User.all[17])
 
 puts "sucessfully created"
