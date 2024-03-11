@@ -76,29 +76,29 @@ export default class extends Controller {
 
     fetch(this.likeFormTarget.action, {
         method: "POST",
-        headers: {"Accept": "text/plain"},
+        headers: {"Accept": "application/json"},
         body: new FormData(this.likeFormTargets[index])
-      }).then(response => response.text())
+      }).then(response => response.json())
         .then(async (data) => {
           console.log(data)
-        // if (data.status === "accepted") {
-          // const { value: text } = await Swal.fire({
-          //   title: "It's a match! 🎉",
-          //   html: `Write a message to <b>${data.profile}</b>`,
-          //   // icon: "success",
-          //   input: "text",
-          //   showCloseButton: true,
-          //   confirmButtonText: "Send",
-          //   confirmButtonColor: "#32573C"
-          // });
+          if (data.status == "accepted") {
+            Swal.fire({
+              title: "It's a match! 🎉",
+              html: data.content,
+              // icon: "success",
+              // input: "text",
+              showCloseButton: true
+              // confirmButtonText: "Send",
+              // confirmButtonColor: "#32573C"
+            });
+          }
           // if (text){
-            // Swal.fire({text: "Message sent!", icon: "success", showCloseButton: true, showConfirmButton: false});
-            // this.#sendMsg(text, data)
+          //   Swal.fire({text: "Message sent!", icon: "success", showCloseButton: true, showConfirmButton: false});
+          //   this.#sendMsg(text, data)
           // }
-        // }
+
       })
   }
-
 
   // #sendMsg(text, data){
   //   const csrf = document.querySelector('meta[name=csrf-token]').content

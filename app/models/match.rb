@@ -4,7 +4,7 @@ class Match < ApplicationRecord
   has_one :chatroom
 
   def rejected!
-    self.status = "rejected"
+    self.update(status: "rejected")
   end
 
   def rejected?
@@ -12,7 +12,7 @@ class Match < ApplicationRecord
   end
 
   def accepted!
-    self.status = "accepted"
+    self.update(status: "accepted")
   end
 
   def accepted?
