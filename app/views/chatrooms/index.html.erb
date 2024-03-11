@@ -16,7 +16,11 @@
       <div class="notification-content">
         <% if chatroom.present? %>
           <p><small><%= chatroom.other(current_user)&.user_name || "Unknown User" %></small></p>
-          <p>last message</p>
+          <% if chatroom.messages.present? %>
+            <p><%= chatroom.messages.last.content %></p>
+          <% else %>
+            <p>No messages... yet</p>
+          <% end %>
         <% else %>
           <p>No chatrooms found</p>
           <p><small>Unknown User</small></p>
