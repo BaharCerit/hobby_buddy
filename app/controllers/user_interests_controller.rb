@@ -1,4 +1,8 @@
 class UserInterestsController < ApplicationController
+  def show
+    @user = User.find(params[:user_id])
+  end
+
   def new
     @interests = Interest.all
     @user_interest = UserInterest.new
@@ -17,4 +21,3 @@ class UserInterestsController < ApplicationController
     redirect_to profile_path
   end
 end
-
