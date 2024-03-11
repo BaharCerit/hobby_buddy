@@ -5,7 +5,15 @@
         Find new friends and improve your skills together🚴🚴</p>
       <div class="banner home-banner" style="background-image: url(<%= asset_path('banner.png') %>);">
       </div>
-        <a class="btn btn-sm button-1 mt-4" href="/users/sign_in">Sign in</a>
-        <a class="btn btn-sm btn-primary mt-4" href="/users/sign_up">Sign up</a>
+
+      <% unless user_signed_in? %>
+        <div class="onboard mt-5">
+          <%= link_to "Sign in", new_user_session_path, class: "btn btn-sm button-1 mt-4" %>
+          <%= link_to "Sign up", new_user_registration_path, class: "btn btn-sm btn-primary mt-4" %>
+        </div>
+      <% end %>
+
+
+
   </div>
 </div>
