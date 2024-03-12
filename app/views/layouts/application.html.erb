@@ -19,7 +19,8 @@
       <%= yield %>
     </div>
 
-    <%= render "shared/navbarfooter" if current_user %>
+    <%= render "shared/navbarfooter" if current_user && (controller_name != 'user_interests') %>
+
   </body>
 
 </html>
