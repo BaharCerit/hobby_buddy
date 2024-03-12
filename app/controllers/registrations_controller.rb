@@ -20,4 +20,12 @@ class RegistrationsController < Devise::RegistrationsController
       respond_with resource
     end
   end
+
+  def after_update_path_for(resource)
+    profile_path
+  end
+  
+  def update_resource(resource, params)
+    resource.update_without_password(params)
+  end
 end
