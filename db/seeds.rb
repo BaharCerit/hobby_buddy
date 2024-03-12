@@ -13,7 +13,7 @@ User.destroy_all
 
 puts "create interests..."
 
-interests = ["Swimming", "Travel", "Music", "Dancing", "Fitness", "Nail polish party", "Hiking", "Cycling", "Camping", "Coding",
+interests = ["Swimming" , "Travel", "Music", "Dancing", "Fitness", "Nail polish party", "Hiking", "Cycling", "Camping", "Coding",
   "Fishing", "Photography", "Climbing", "Soccer", "Basketball", "Skating", "Snowboarding", "Cooking", "Reading", "Painting",
   "Yoga", "Gardening", "Writing", "Birdwatching", "Meditation", "Volunteering", "Skiing", "Drawing", "Running", "Film", "Fashion",
   "Knitting", "Sewing", "Pottery", "Sculpture", "Woodworking", "Calligraphy", "Origami", "Chess", "Board games", "Video games",
