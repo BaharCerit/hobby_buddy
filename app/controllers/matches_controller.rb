@@ -1,8 +1,5 @@
 class MatchesController < ApplicationController
 
-  def edit
-  end
-
   def create
     @form_type = params[:match][:form]
     @profile_id = params[:match][:profile]
