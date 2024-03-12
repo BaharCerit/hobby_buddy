@@ -15,10 +15,12 @@
           <% end %>
       </div>
 
-        <div class="navbarfooter-links">
+        <div class="navbarfooter-links"  data-controller="distance-slider">
           <%= form_with url: "/find-buddies", method: :get do |f| %>
-            <%= f.range_field :distance, in: 1...200, step: 0.5, value: params[:distance].to_i %>
-            <%= f.submit 'Go' %>
+            <%= f.range_field :distance, within: 1...200, step: 0.5, value: params[:distance].to_i,  id: 'distance-range'  %>
+            <span data-target="distance-slider.selectedDistance">0</span> km
+            <%# <%= f.submit 'Go' %> %>
+
           <% end %>
       </div>
 
