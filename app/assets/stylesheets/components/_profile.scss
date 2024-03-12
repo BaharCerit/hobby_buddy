@@ -27,7 +27,7 @@
 }
 
 .user-infos {
-  background-color: $bisque-orange;
+  background-color: white;
   width: 100%;
   min-height: 200px;
   border-radius: 10px;
@@ -35,4 +35,30 @@
   margin-bottom: 20px;
   margin-top: 20px;
   padding: 8px 20px 8px 20px;
+}
+
+.photo-button {
+  color: rgb(220, 180, 37);
+  // position: absolute;
+  font-size: 40px;
+}
+
+.photo-button-form {
+  position: relative;
+}
+
+.photo-button {
+  position: absolute;
+  bottom: 40px;
+  background: #ff6000;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 5px;
+  margin: 0;
+  right: 60px;
 }
