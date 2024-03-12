@@ -9,7 +9,8 @@ class User < ApplicationRecord
   has_many :interests, through: :user_interests, dependent: :destroy
   # has_many :matches
   # has_many :chatrooms, through: :matches
-
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -20,7 +21,7 @@ class User < ApplicationRecord
   def has_interest?(interest)
     self.interests.include?(interest)
   end
-  
+
   def matches
     Match.where("first_user_id = ? OR second_user_id = ?", self.id, self.id)
   end
