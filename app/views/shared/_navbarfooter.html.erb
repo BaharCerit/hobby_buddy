@@ -3,23 +3,28 @@
 
       <div class="navbarfooter-links">
         <%= link_to "/profile", class: 'nav-link active' do  %>
-        <i class="fa-solid fa-user navbar-icon"></i>
+          <i class="fa-solid fa-user navbar-icon"></i>
         <% end %>
       </div>
 
 
       <%# we can make desicion which icon is better ? %>
       <div class="navbarfooter-links">
-        <%= link_to "/find-buddies", class: 'nav-link active' do  %>
-        <i class="fa-solid fa-location-crosshairs navbar-icon"></i>
-        <i class="fa-solid fa-user-group navbar-icon"></i>
+          <%= link_to "/find-buddies", class: 'nav-link active' do  %>
+           <i class="fa-solid fa-user-group navbar-icon"></i>
+          <% end %>
+      </div>
 
-        <% end %>
+        <div class="navbarfooter-links">
+          <%= form_with url: "/find-buddies", method: :get do |f| %>
+            <%= f.range_field :distance, in: 1...200, step: 0.5, value: params[:distance].to_i %>
+            <%= f.submit 'Go' %>
+          <% end %>
       </div>
 
       <div class="navbarfooter-links">
         <%= link_to "/chatrooms", class: 'nav-link active' do  %>
-        <i class="fa-solid fa-comment-dots navbar-icon"></i>
+          <i class="fa-solid fa-comment-dots navbar-icon"></i>
         <% end %>
       </div>
     </div>
