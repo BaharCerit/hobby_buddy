@@ -57,9 +57,10 @@
   }
 }
 .back-icon {
-  position: sticky;
-  top: 100px;
-  right: 50px;
+  position: fixed;
+  top: 75px;
+  left: 10px;
   z-index: 1000;
-  background-color: transparent;
+  width: 100%;
+  background-color: white;
 }
