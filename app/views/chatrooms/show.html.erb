@@ -11,7 +11,7 @@
 <div class="container chatroom"
   data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
-  data-chatroom-current-user-id-value="<%= current_user.id %>"
+  data-chatroom-subscription-current-user-id-value="<%= current_user.id %>"
 >
 
   <div class="background">
@@ -22,7 +22,9 @@
 
   <div class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
-      <%= render "messages/message", message: message %>
+      <div id="message-<%= message.id %>" class="message <%= message.user == current_user ? 'sent-message' : 'received' %>">
+        <%= render "messages/message", message: message %>
+      </div>
     <% end %>
   </div>
 
