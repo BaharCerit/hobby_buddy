@@ -93,7 +93,7 @@
   cursor: -webkit-grab;
   cursor: -moz-grab;
   cursor: grab;
-  margin: 8.5vh;
+  margin: 14.5vh;
   touch-action: pan-y !important;
   padding: 10px;
   // margin-top: 14.5vh;
@@ -108,4 +108,20 @@
 
 .loaded.profiles-all {
   opacity: 1;
+}
+
+.see-details {
+  width: 100%;
+}
+
+.see-details-infos {
+  font-size: 15px;
+  text-align: justify;
+  background-color: white;
+  width: 100%;
+  min-height: 200px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+
 }

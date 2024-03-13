@@ -11,7 +11,6 @@ class UserInterestsController < ApplicationController
   def create
     # @interests = Interest.all
     current_user.user_interests.destroy_all
-
     if params[:user_interest].blank?
       flash[:alert] = "Please select at least one interest."
       redirect_to new_user_interest_path
@@ -25,7 +24,12 @@ class UserInterestsController < ApplicationController
       new_interest = UserInterest.new(interest_id: interest_id, user: current_user)
       new_interest.save!
     end
+    if params[:update]
+      redirect_to dashboard_path
 
-    redirect_to profile_path
+    else
+      redirect_to find_buddies_path
+
+    end
   end
 end
