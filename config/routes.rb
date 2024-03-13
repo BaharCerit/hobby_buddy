@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :matches, only: [:create]
 
   # # Profile route
-  get "profile", to: "pages#profile" # Profile page
+  get "/profile", to: "pages#profile" # Profile page
   # get "profile/edit", to: "profiles#edit" # Edit Profile page
   # patch "profile/update", to: "profiles#update" # updated profile page
 
