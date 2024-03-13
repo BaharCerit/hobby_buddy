@@ -1,4 +1,4 @@
-.btn-primary{
+.btn-primary {
   text-decoration: none;
   border: 1px solid $maire;
   color: $white;
@@ -7,7 +7,8 @@
   border-radius: 50px;
   font-weight: lighter;
   transition: opacity 0.3s ease;
-  &:hover, &:active  {
+  &:hover,
+  &:active {
     opacity: 1;
   }
 }
@@ -17,7 +18,7 @@
   border: 1px solid $safety-orange;
   color: $maire;
   background-color: $white;
-  padding: 8px 24px;
+  padding: 4px 12px;
   border-radius: 50px;
   font-weight: lighter;
   transition: opacity 0.3s ease;
