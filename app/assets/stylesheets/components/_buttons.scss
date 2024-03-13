@@ -15,10 +15,11 @@
 
 .button-1 {
   text-decoration: none;
+  margin-top: 2px;
   border: 1px solid $safety-orange;
   color: $maire;
   background-color: $white;
-  padding: 4px 12px;
+  padding: 4px 8px;
   border-radius: 50px;
   font-weight: lighter;
   transition: opacity 0.3s ease;
