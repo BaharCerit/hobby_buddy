@@ -1,4 +1,4 @@
-.btn-primary {
+.btn-primary{
   text-decoration: none;
   border: 1px solid $maire;
   color: $white;
@@ -7,7 +7,7 @@
   border-radius: 50px;
   font-weight: lighter;
   transition: opacity 0.3s ease;
-  &:hover {
+  &:hover, &:active  {
     opacity: 1;
   }
 }
@@ -18,6 +18,20 @@
   color: $maire;
   background-color: $white;
   padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  transition: opacity 0.3s ease;
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.button-find-buddies {
+  text-decoration: none;
+  border: 1px solid $safety-orange;
+  color: $maire;
+  background-color: $white;
+  padding: 3px 8px;
   border-radius: 50px;
   font-weight: lighter;
   transition: opacity 0.3s ease;
@@ -61,7 +75,7 @@
   color: $link-water;
   background-color: $white;
   border: 2px solid $hawkes-gray;
-  padding: 8px 24px;
+  padding: 6px 20px;
   border-radius: 50px;
   font-weight: lighter;
   opacity: 0.6;

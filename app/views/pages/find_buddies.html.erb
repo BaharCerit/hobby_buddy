@@ -18,25 +18,30 @@
       data-swipe-target="swipeCard" data-swipe-profile-value=<%= user.id %>>
 
       <div class="profile-card">
-        <div class="img-card" style="background-image: url('<%= cl_image_path(user.photo.key) if user.photo.attached? %>');">
+        <div class="img-card" style="background-image: url('<%= user.photo.attached? ? cl_image_path(user.photo.key) : asset_path('HobbyBuddy.png') %>');">
         </div>
         <div class="profile-description m-4">
           <div class="name">
-            <div class="name-title mb-4"><%= user.user_name%></div>
+            <div class="name-title mb-4"><%= user.user_name%>'s interests</div>
             <div>
               <% if @user_interests.present? %>
                 <div class="user-added-interest d-flex flex-wrap mb-3">
                   <% @user_interests.each do |user_interest| %>
-                    <a href="#" class="btn btn-sm interest-button mb-2 me-2"><%= user_interest.interest.name %></a>
+                    <a href="#" class="btn btn-sm button-find-buddies mb-2 me-2"><%= user_interest.interest.name %></a>
                   <% end %>
                 </div>
               <% end %>
             </div>
 
-            <div class="see-details d-flex justify-content-end">
-              <%= link_to "See Details", buddy_profile_path(user), class: "btn btn-sm btn-primary" %>
+            <div data-controller="toggle" class="see-details justify-content-end">
+              <%#= link_to "See Details", buddy_profile_path(user), class: "btn btn-sm btn-primary", data: { action: "click->toggle#buttonClick" } %>
+              <button class="btn btn-sm btn-primary" data-action="click->toggle#fire">see details</button>
+              <div data-toggle-target="togglableElement" class="d-none">
+                <%= render "details", user: user%>
+              </div>
             </div>
           </div>
+
 
 
         </div>
