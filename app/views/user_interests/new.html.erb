@@ -3,16 +3,20 @@
   <h1 class="mt-4 mb-4">Interests</h1>
   <p class="interest-explanation">Let everyone know what you’re interested in by adding it to your profile.</p>
   <%= simple_form_for @user_interest do |f| %>
-    <% @interests.each do |interest| %>
-      <div class="form-check tag-item">
-        <input class="tag-selector form-check-input check_boxes optional" type="checkbox" value="<%= interest.id %>" name="user_interest[interest][]" id="user_interest_interest_<%= interest.id %>" <%= current_user.has_interest?(interest) ? "checked" : "" %>>
-        <label class="form-check-label collection_check_boxes" for="user_interest_interest_<%= interest.id %>"><%= interest.name %></label>
-      </div>
-    <% end %>
+    <%= hidden_field_tag :update, true if params[:update] %>
+      <% @interests.each do |interest| %>
+        <div class="form-check tag-item">
+          <input class="tag-selector form-check-input check_boxes optional" type="checkbox" value="<%= interest.id %>" name="user_interest[interest][]" id="user_interest_interest_<%= interest.id %>" <%= current_user.has_interest?(interest) ? "checked" : "" %>>
+          <label class="form-check-label collection_check_boxes" for="user_interest_interest_<%= interest.id %>"><%= interest.name %></label>
+        </div>
+      <% end %>
 
 
-    <div class="sticky-button" style="height: 50px">
-      <%= f.button :submit, "Create Profile", class: "btn button-1 mt-4" do %>
+      <div class="sticky-button" style="height: 50px">
+      <% if params[:update] %>
+        <%= f.button :submit, "+", class: "btn button-1 mt-4" %>
+      <% else %>
+        <%= f.button :submit, "Add", class: "btn button-1 mt-4" %>
       <% end %>
     </div>
   <%end%>

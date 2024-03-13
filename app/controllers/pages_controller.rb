@@ -9,7 +9,7 @@ class PagesController < ApplicationController
     interests = current_user.interests if current_user
     @users = User.joins(:interests).where(interests: { id: interests }).where.not(id: current_user.id).distinct
     @user_interests = UserInterest.where(user_id: current_user)
-      
+
 
     if params[:distance]
       @users = @users.near([current_user.latitude, current_user.longitude], params[:distance].to_i)
@@ -26,7 +26,12 @@ class PagesController < ApplicationController
   def show
     @user = User.find(params[:id])
     @user_interests = UserInterest.where(user_id: current_user)
-    
+
+  end
+
+  def dashboard
+    @user = current_user
+    @user_interests = UserInterest.where(user_id: current_user)
   end
 
 end
