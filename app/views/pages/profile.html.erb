@@ -27,10 +27,9 @@
       <% if @user_interests.present? %>
         <div class="user-added-interest d-flex flex-wrap mb-3 mt-3">
           <% @user_interests.each do |user_interest| %>
-            <a href="#" class="btn btn-sm button-1"><%= user_interest.interest.name %></a>
+            <a href="#" class="btn btn-sm button-1 mb-1"><%= user_interest.interest.name %></a>
           <% end %>
           <%= link_to "+", new_user_interest_path, class: "btn btn-primary mb-3" %>
-          
 
         </div>
       <% end %>

@@ -14,6 +14,7 @@
   <%= csp_meta_tag %>
   <%= favicon_link_tag %>
 
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
     <script src="
@@ -22,6 +23,8 @@
       <link href="
       https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
       " rel="stylesheet">
+
+    <%= render 'shared/ios_pwa_links' %>
 
   </head>
 

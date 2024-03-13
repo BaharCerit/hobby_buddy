@@ -6,6 +6,7 @@
   padding: 8px 24px;
   border-radius: 50px;
   font-weight: lighter;
+  // max-height: 31px;
   transition: opacity 0.3s ease;
   &:hover,
   &:active {
@@ -15,10 +16,12 @@
 
 .button-1 {
   text-decoration: none;
+  margin-top: 2px;
+  max-height: 31px;
   border: 1px solid $safety-orange;
   color: $maire;
   background-color: $white;
-  padding: 4px 12px;
+  padding: 4px 8px;
   border-radius: 50px;
   font-weight: lighter;
   transition: opacity 0.3s ease;
@@ -29,6 +32,7 @@
 
 .button-find-buddies {
   text-decoration: none;
+  max-height: 31px;
   border: 1px solid $safety-orange;
   color: $maire;
   background-color: $white;
@@ -101,7 +105,7 @@
 
 .sticky-button {
   position: sticky;
-  bottom: 90px;
+  bottom: 40px;
   z-index: 1000;
 }
 .sticky-button1 {
