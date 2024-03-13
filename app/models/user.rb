@@ -1,11 +1,11 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  has_many :first_user_matches, class_name: 'Match', foreign_key: 'first_user_id'
-  has_many :second_user_matches, class_name: 'Match', foreign_key: 'second_user_id'
+  has_many :first_user_matches, class_name: 'Match', foreign_key: 'first_user_id', dependent: :destroy
+  has_many :second_user_matches, class_name: 'Match', foreign_key: 'second_user_id', dependent: :destroy
   has_one_attached :photo
 
-  has_many :user_interests
+  has_many :user_interests, dependent: :destroy
   has_many :interests, through: :user_interests, dependent: :destroy
   # has_many :matches
   # has_many :chatrooms, through: :matches

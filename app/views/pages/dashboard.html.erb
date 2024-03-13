@@ -39,6 +39,13 @@
         <h5>About me :</h5>
       <div class="user-infos">
         <p><%= @user.description %></p>
+        <div class="edit-icon-div">
+          <div>
+            <%= link_to edit_user_registration_path, class: "edit-icon" do %>
+              <i class="fa-solid fa-pencil"></i>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
   </div>

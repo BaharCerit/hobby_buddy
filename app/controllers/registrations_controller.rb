@@ -22,11 +22,31 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def after_update_path_for(resource)
-    profile_path
+    # profile_path
+    dashboard_path
+    # redirect_to controller: 'pages', action: 'dashboard'
   end
 
   def update_resource(resource, params)
     resource.update_without_password(params)
+    # redirect_to controller: 'pages', action: 'dashboard'
   end
+
+  # DELETE /resource
+  # def destroy
+  #   @user = User.find(params[:id])
+  #   @first_matches = Matches.find_by(first_user_id: params[:id])
+  #   @first_matches.destroy
+
+
+  #   @second_matches = Matches.find_by(second_user_id: params[:id])
+  #   @second_matches.destroy
+
+  #   @user.destroy
+  #   if @user.destroy
+  #     redirect_to root_url, notice: "User deleted"
+  #   end
+
+  # end
 
 end

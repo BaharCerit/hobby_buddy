@@ -28,6 +28,7 @@
 
 .user-infos {
   background-color: white;
+  position: relative;
   width: 100%;
   min-height: 200px;
   border-radius: 10px;
@@ -35,7 +36,7 @@
   text-align: justify;
   margin-bottom: 20px;
   margin-top: 20px;
-  padding: 8px 20px 8px 20px;
+  padding: 8px 20px 25px 20px;
 }
 
 .photo-button {
@@ -50,7 +51,7 @@
 
 .photo-button {
   position: absolute;
-  bottom: 40px;
+  bottom: 45px;
   background: #ff6000;
   border-radius: 50%;
   width: 40px;
@@ -61,5 +62,23 @@
   align-items: center;
   padding-bottom: 5px;
   margin: 0;
-  right: 60px;
+  right: 85px;
+}
+
+.edit-icon-div {
+  // display: flex;
+  position: absolute;
+  // justify-content: flex-end;
+  bottom: 10px;
+  right: 15px;
+}
+
+.edit-icon {
+  // position: absolute;
+  // bottom: -100px;
+  // right: 5px;
+  &:hover {
+    color: $dark-link-water;
+    opacity: 1;
+  }
 }
