@@ -9,59 +9,67 @@
 
 <div class="profiles-all" data-controller="swipe">
   <div class="floating-icon">
-    <i class="fa fa-remove gone nope" data-swipe-target="nope"></i>
-    <i class="fa fa-heart gone heart" data-swipe-target="like"></i>
+    <i class="fa-solid fa-thumbs-down gone nope" data-swipe-target="nope"></i>
+    <i class="fa-solid fa-thumbs-up gone heart" data-swipe-target="like"></i>
   </div>
   <div class="profile-cards">
-  <% @users.each do |user| %>
-    <div class="single-card"
-      data-swipe-target="swipeCard" data-swipe-profile-value=<%= user.id %>>
 
-      <div class="profile-card">
-        <div class="img-card" style="background-image: url('<%= user.photo.attached? ? cl_image_path(user.photo.key) : asset_path('HobbyBuddy.png') %>');">
-        </div>
-        <div class="profile-description m-4">
-          <div class="name">
-            <div class="name-title mb-4"><%= user.user_name%>'s interests</div>
-            <div>
-              <% if @user_interests.present? %>
-                <div class="user-added-interest d-flex flex-wrap mb-3">
-                  <% @user_interests.each do |user_interest| %>
-                    <a href="#" class="btn btn-sm button-find-buddies mb-2 me-2"><%= user_interest.interest.name %></a>
-                  <% end %>
+  <% if @users.empty? %>
+    <div class="single-card">
+      <p>No people yet :(</p>
+    </div>
+  <% else %>
+    <% @users.each do |user| %>
+      <div class="single-card"
+        data-swipe-target="swipeCard" data-swipe-profile-value=<%= user.id %>>
+
+        <div class="profile-card">
+          <div class="img-card" style="background-image: url('<%= user.photo.attached? ? cl_image_path(user.photo.key) : asset_path('HobbyBuddy.png') %>');">
+          </div>
+          <div class="profile-description m-4">
+            <div class="name">
+              <div class="name-title mb-4"><%= user.user_name%>'s interests</div>
+              <div>
+                <% if @user_interests.present? %>
+                  <div class="user-added-interest d-flex flex-wrap mb-3">
+                    <% @user_interests.each do |user_interest| %>
+                      <a href="#" class="btn btn-sm button-find-buddies mb-2 me-2"><%= user_interest.interest.name %></a>
+                    <% end %>
+                  </div>
+                <% end %>
+              </div>
+
+              <div data-controller="toggle" class="see-details justify-content-end">
+                <%#= link_to "See Details", buddy_profile_path(user), class: "btn btn-sm btn-primary", data: { action: "click->toggle#buttonClick" } %>
+                <button class="btn btn-sm btn-primary" data-action="click->toggle#fire">see details</button>
+                <div data-toggle-target="togglableElement" class="d-none">
+                  <%= render "details", user: user%>
                 </div>
-              <% end %>
-            </div>
-
-            <div data-controller="toggle" class="see-details justify-content-end">
-              <%#= link_to "See Details", buddy_profile_path(user), class: "btn btn-sm btn-primary", data: { action: "click->toggle#buttonClick" } %>
-              <button class="btn btn-sm btn-primary" data-action="click->toggle#fire">see details</button>
-              <div data-toggle-target="togglableElement" class="d-none">
-                <%= render "details", user: user%>
               </div>
             </div>
+
+
+
           </div>
-
-
-
+            <div class="d-flex justify-content-between position-absolute">
+              <%= simple_form_for @match, data: { swipe_target: "dislikeForm" },  html: { class: 'd-none' } do |f| %>
+                <%= f.input :profile, as: :hidden, input_html: { value: user.id } %>
+                <%= f.input :form, as: :hidden, input_html: { value: "dislike" }%>
+                <%= f.submit %>
+              <% end %>
+              <%= simple_form_for @match, data: { swipe_target: "likeForm" },  html: { class: 'd-none' } do |f| %>
+                <%= f.input :profile, as: :hidden, input_html: { value: user.id } %>
+                <%= f.input :form, as: :hidden, input_html: { value: "like" }%>
+                <%= f.submit %>
+              <% end %>
+            </div>
         </div>
-          <div class="d-flex justify-content-between position-absolute">
-            <%= simple_form_for @match, data: { swipe_target: "dislikeForm" },  html: { class: 'd-none' } do |f| %>
-              <%= f.input :profile, as: :hidden, input_html: { value: user.id } %>
-              <%= f.input :form, as: :hidden, input_html: { value: "dislike" }%>
-              <%= f.submit %>
-            <% end %>
-            <%= simple_form_for @match, data: { swipe_target: "likeForm" },  html: { class: 'd-none' } do |f| %>
-              <%= f.input :profile, as: :hidden, input_html: { value: user.id } %>
-              <%= f.input :form, as: :hidden, input_html: { value: "like" }%>
-              <%= f.submit %>
-            <% end %>
-          </div>
+
+
+
       </div>
-
-
-
-    </div>
+    <% end %>
   <% end %>
+
   </div>
 </div>

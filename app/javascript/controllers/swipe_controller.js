@@ -62,6 +62,18 @@ export default class extends Controller {
           this.#swipeLeft()
         }
         card.style.transform = '';
+
+        if (this.index == this.swipeCardTargets.length -1) {
+          Swal.fire({
+            title: "No more people to show :(",
+            html: '<p>Play again later</p>',
+            // icon: "success",
+            // input: "text",
+            showCloseButton: true
+            // confirmButtonText: "Send",
+            // confirmButtonColor: "#32573C"
+          });
+        }
       })
     });
   }
@@ -71,13 +83,16 @@ export default class extends Controller {
       return card.classList.contains("d-none")
     })
 
-    const index = visibleCard.length - 1
+    this.index = visibleCard.length - 1
+
+    // console.log(index)
+    // console.log(this.swipeCardTargets.length)
 
 
     fetch(this.likeFormTarget.action, {
         method: "POST",
         headers: {"Accept": "application/json"},
-        body: new FormData(this.likeFormTargets[index])
+        body: new FormData(this.likeFormTargets[this.index])
       }).then(response => response.json())
         .then(async (data) => {
           console.log(data)
@@ -122,6 +137,12 @@ export default class extends Controller {
   // }
 
   #swipeLeft() {
+    const visibleCard = this.swipeCardTargets.filter((card) => {
+      return card.classList.contains("d-none")
+    })
+
+    this.index = visibleCard.length - 1
+
     fetch(this.dislikeFormTarget.action, {
         method: "POST",
         headers: {"Accept": "text/plain"},
