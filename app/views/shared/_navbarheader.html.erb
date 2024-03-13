@@ -6,7 +6,7 @@
 
     <div class="d-flex align-items-center gap-2">
       <% if user_signed_in? %>
-        <i class="fa-solid fa-bell"></i>
+        
         <% if current_user.photo.attached? %>
           <%= image_tag current_user.photo, class: "avatar", alt: "dropdown menu" %>
         <% else %>
