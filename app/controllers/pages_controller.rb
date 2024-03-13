@@ -19,5 +19,6 @@ class PagesController < ApplicationController
   def show
     @user = User.find(params[:id])
     @user_interests = UserInterest.where(user_id: current_user)
+    
   end
 end
