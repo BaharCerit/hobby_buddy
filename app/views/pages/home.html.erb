@@ -1,46 +1,14 @@
 
-<div class="banner">
-  <h1>Hobby Buddy</h1>
+<body class="home-bg">
+  <div class="home-content">
+    <div></div>
 
-  <div id="slides-images">
-
-    <section class="splide" aria-label="Splide Basic HTML Example">
-      <div class="splide__track">
-        <ul class="splide__list">
-          <li class="splide__slide"><img class="d-block w-100" src="<%= asset_path('banner.png') %>" alt="Third slide"></li>
-          <li class="splide__slide"><img class="d-block w-100" src="<%= asset_path('pexels-helena-lopes-745045.jpg') %>" alt="First slide"></li>
-          <li class="splide__slide"><img class="d-block w-100" src="<%= asset_path('pexels-adrienn-1524105.jpg') %>" alt="Second slide"></li>
-          <li class="splide__slide"><img class="d-block w-100" src="<%= asset_path('pexels-vija-rindo-pratama-935835.jpg') %>" alt="Third slide"></li>
-          <li class="splide__slide"><img class="d-block w-100" src="<%= asset_path('pexels-vija-rindo-pratama-935835.jpg') %>" alt="Third slide"></li>
-
-        </ul>
-      </div>
-    </section>
-
-
-  </div>
-
-  <div class="w-100 d-flex justify-content-center">
-    <div id="logo-image"></div>
-  </div>
-  <div class="row container content-banner">
-
-    <p>Connect with people who have same interests.
-        Find new friends and improve your skills together</p>
-  </div>
-  <%# <div class="onboard-buttons"> %>
-  <% unless user_signed_in? %>
-    <div class="onboard mt-5">
-      <%= link_to "Sign in", new_user_session_path, class: "btn btn-sm button-1 mt-4" %>
-      <%= link_to "Sign up", new_user_registration_path, class: "btn btn-sm button-1 mt-4" %>
+    <div class="home-text">
+      <h1>Hobby Buddy</h1>
+      <p class="custom-paragraph"> Connect with people who have same interests and hobbies
+      </p>
     </div>
-  <% end %>
-  </div>
-</div>
 
-<script>
-  document.addEventListener( 'DOMContentLoaded', function() {
-    var splide = new Splide( '.splide' );
-    splide.mount();
-  } );
-</script>
+    <%= link_to "Let's go!", profile_path, class: "btn-primary" %>
+  </div>
+</body>
