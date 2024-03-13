@@ -6,6 +6,7 @@
   padding: 8px 24px;
   border-radius: 50px;
   font-weight: lighter;
+  // max-height: 31px;
   transition: opacity 0.3s ease;
   &:hover,
   &:active {
@@ -16,6 +17,7 @@
 .button-1 {
   text-decoration: none;
   margin-top: 2px;
+  max-height: 31px;
   border: 1px solid $safety-orange;
   color: $maire;
   background-color: $white;
@@ -30,6 +32,7 @@
 
 .button-find-buddies {
   text-decoration: none;
+  max-height: 31px;
   border: 1px solid $safety-orange;
   color: $maire;
   background-color: $white;

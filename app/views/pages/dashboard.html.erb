@@ -25,12 +25,12 @@
     </div>
 
     <% if @user_interests.present? %>
-      <div class="user-added-interest d-flex flex-wrap mb-3 mt-3">
+      <div class="user-added-interest d-flex flex-wrap">
         <% @user_interests.each do |user_interest| %>
-          <a href="#" class="btn btn-sm button-1"><%= user_interest.interest.name %></a>
+          <a href="#" class="btn btn-sm button-find-buddies mb-2 me-2"><%= user_interest.interest.name %></a>
         <% end %>
 
-        <%= link_to "+", new_user_interest_path(update: :true), class: "btn btn-primary mb-3" %>
+        <%= link_to "+", new_user_interest_path(update: :true), class: "btn btn-primary mb-3", style: "max-height:31px;padding:2px 24px;" %>
 
       </div>
     <% end %>
