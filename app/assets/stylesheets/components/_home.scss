@@ -30,22 +30,22 @@
   width: 90%;
   height: fit-content;
   margin: 50px 20px 20px 20px;
-
 }
 .splide__slide img {
   border-radius: 30px;
+  height: 400px;
 }
-#logo-image {
-  background-image: url("HobbyBuddy.png");
-  background-position-x: center;
-  background-position-y: center;
-  // background-size: 10%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 200px;
-  height: 200px;
-  text-align: center;
-}
+// #logo-image {
+//   background-image: url("HobbyBuddy.png");
+//   background-position-x: center;
+//   background-position-y: center;
+//   // background-size: 10%;
+//   background-repeat: no-repeat;
+//   background-size: cover;
+//   width: 200px;
+//   height: 200px;
+//   text-align: center;
+// }
 
 .content-banner {
   text-align: justify;
