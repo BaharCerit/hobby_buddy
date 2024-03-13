@@ -1,9 +1,9 @@
 
- <div class="navbarfooter-links"  data-controller="distance-slider">
+ <div class="align-text-center" data-controller="distance-slider">
           <%= form_with url: "/find-buddies", method: :get do |f| %>
-            <%= f.range_field :distance, within: 1...200, step: 0.5, value: params[:distance].to_i, data:{ action: 'input->distance-slider#display'} %>
+            <%= f.range_field :distance, within: 1...200, step: 0.5, value: params[:distance].to_i, data:{ action: 'input->distance-slider#display'}, class: "form-range" %>
 
-            <%= f.submit params[:distance].to_i, data: {distance_slider_target: "distance"} %>
+            <%= f.submit params[:distance].to_i, data: {distance_slider_target: "distance"}, class: "button-1" %>
           <% end %>
       </div>
 
