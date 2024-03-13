@@ -1,52 +1,27 @@
-.banner {
-  // background-color: $rajah-orange;
-  height: 100vh;
-  padding: 50px 0;
-  // background-image: url("HobbyBuddy.png");
-  // background-position-x: center;
-  // background-position-y: center;
-  // background-size: 40%;
-  // background-repeat: no-repeat;
-  // background-size: cover;
+// new home page css
+.home-bg {
+  background-image: url('https://images.pexels.com/photos/3097297/pexels-photo-3097297.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+  background-size: cover;
+  background-position: 39%;
+
 }
 
-.banner h1 {
-  margin: 0;
-  color: white;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-  font-size: 32px;
-  font-weight: bold;
+.home-text {
   text-align: center;
 }
 
-.banner p {
-  font-size: 20px;
+.home-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.custom-paragraph {
+  font-size: 18px;
   color: white;
-  opacity: 0.7;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-}
-
-#slides-images {
-  width: 90%;
-  height: fit-content;
-  margin: 50px 20px 20px 20px;
-}
-.splide__slide img {
-  border-radius: 30px;
-  height: 400px;
-}
-// #logo-image {
-//   background-image: url("HobbyBuddy.png");
-//   background-position-x: center;
-//   background-position-y: center;
-//   // background-size: 10%;
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   width: 200px;
-//   height: 200px;
-//   text-align: center;
-// }
-
-.content-banner {
-  text-align: justify;
+  margin: 0 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
