@@ -69,7 +69,7 @@ export default class extends Controller {
             html: '<p>Play again later</p>',
             // icon: "success",
             // input: "text",
-            showCloseButton: true
+            showCloseButton: true,
             // confirmButtonText: "Send",
             // confirmButtonColor: "#32573C"
           });
@@ -102,7 +102,7 @@ export default class extends Controller {
               html: data.content,
               // icon: "success",
               // input: "text",
-              showCloseButton: true
+              showCloseButton: true,
               // confirmButtonText: "Send",
               // confirmButtonColor: "#32573C"
             });
