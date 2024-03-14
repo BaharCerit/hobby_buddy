@@ -16,7 +16,7 @@
 
     <div>
       <div style="text-align: center;">
-        <h4 class="profile-name"><%= @user.user_name.capitalize %></h4>
+        <h4 class="profile-name"><%= @user.user_name.titleize %></h4>
       </div>
 
       <div>
@@ -35,7 +35,7 @@
       <% end %>
 
       <div>
-          <h5>About me :</h5>
+          <h5>About me</h5>
         <div class="user-infos">
           <p><%= @user.description %></p>
         </div>
