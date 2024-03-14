@@ -13,9 +13,9 @@
     <div class="notification <%= message_class %> mb-2">
 
       <%# <img src='https://kitt.lewagon.com/placeholder/users/Eschults' class="avatar-large"/> %>
-      <div class="notification-content">
         <% if chatroom.present? %>
           <%= cl_image_tag chatroom.match.second_user.photo.key, class: "avatar-large" %>
+      <div class="notification-content">
           <p><small><%= chatroom.other(current_user)&.user_name || "Unknown User" %></small></p>
           <% if chatroom.messages.present? %>
             <p><%= chatroom.messages.last.content %></p>
@@ -35,11 +35,6 @@
           <% end %>
         <% end %>
       </div>
-
-
-
-
-
 
     </div>
 
