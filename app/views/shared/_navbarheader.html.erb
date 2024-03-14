@@ -6,9 +6,9 @@
 
     <div class="d-flex align-items-center gap-2">
       <% if user_signed_in? %>
-        
+
         <% if current_user.photo.attached? %>
-          <%= image_tag current_user.photo, class: "avatar", alt: "dropdown menu" %>
+          <%= cl_image_tag current_user.photo.key, class: "avatar", alt: "dropdown menu" %>
         <% else %>
             <img class="avatar" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" alt="Change your image">
         <% end %>

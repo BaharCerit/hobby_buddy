@@ -28,7 +28,7 @@ class User < ApplicationRecord
 
   def matched?(other)
     for match in self.matches do
-      if match.first_user_id == other.id || match.second_user_id == other_id
+      if match.first_user_id == other.id && match.status != 'pending' || match.second_user_id == other.id && match.status != 'pending'
         return true
       end
     end
