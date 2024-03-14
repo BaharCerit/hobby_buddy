@@ -56,7 +56,7 @@ user_22 = User.create(user_name: " Francesca",address: "amsterdam", email: "Fran
   user.save
 end
 
-[user_7, user_8, user_9, user_10, user_11, user_12, user_13, user_14, user_15, user_16, user_17, user_18].each do |user|
+[user_7, user_8, user_9, user_10, user_11, user_12, user_13, user_14, user_15, user_16, user_17, user_18, user_19,user_20,user_21, user_22].each do |user|
   file = URI.open("https://xsgames.co/randomusers/avatar.php?g=female")
   user.photo.attach(io: file, filename: "#{user.user_name}.png", content_type: "image/png")
   user.save
