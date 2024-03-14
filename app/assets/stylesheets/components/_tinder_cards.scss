@@ -38,11 +38,11 @@
 }
 
 .floating-icon .heart {
-  color: #fe5d5d;
+  color: #FFA559;
 }
 
 .floating-icon .nope {
-  color: #0e1117;
+  color: #454545;
 }
 
 // .float_love .fa-heart {
@@ -124,4 +124,25 @@
   margin-bottom: 20px;
   margin-top: 20px;
 
+}
+
+
+.swal2-popup, .swal2-title {
+  font-family: "Ubuntu", "Helvetica", "sans-serif";
+}
+
+.swal2-confirm {
+  text-decoration: none;
+  border: 1px solid $safety-orange !important;
+  color: $white;
+  background-color: $safety-orange !important;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  // max-height: 31px;
+  transition: opacity 0.3s ease;
+  &:hover,
+  &:active {
+    opacity: 1;
+  }
 }
