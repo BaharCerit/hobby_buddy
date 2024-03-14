@@ -13,7 +13,9 @@ class PagesController < ApplicationController
       @nearby_users = User.near([current_user.latitude, current_user.longitude], params[:distance].to_i)
       @nearby_users.each do |user|
         interests.each do |interest|
-          @users << user if user.interests.include?(interest)
+          unless @users.include?(user)
+            @users << user if user.interests.include?(interest)
+          end
         end
       end
     else
