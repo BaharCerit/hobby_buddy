@@ -2,7 +2,7 @@
 
   <div class="profile-image-container" data-controller="photo">
     <% if current_user.photo.attached? %>
-      <%= image_tag(current_user.photo, class: "profile-image", alt: "avatar") %>
+      <%= cl_image_tag(current_user.photo.key, class: "profile-image", alt: "avatar") %>
 
     <% else %>
       <img class="profile-image" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" alt="Change your image">
@@ -16,12 +16,12 @@
 
   <div>
     <div style="text-align: center;">
-      <h4 class="profile-name"><%= @user.user_name.capitalize %></h4>
+      <h4 class="profile-name"><%= @user.user_name.titleize %></h4>
     </div>
 
 
     <div style="text-align: justify;">
-      <h5>My Interests :</h5>
+      <h5>My Interests</h5>
     </div>
 
     <% if @user_interests.present? %>
@@ -36,7 +36,7 @@
     <% end %>
 
     <div>
-        <h5>About me :</h5>
+        <h5>About me</h5>
       <div class="user-infos">
         <p><%= @user.description %></p>
         <div class="edit-icon-div">
