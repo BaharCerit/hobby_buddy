@@ -25,4 +25,14 @@ class User < ApplicationRecord
   def matches
     Match.where("first_user_id = ? OR second_user_id = ?", self.id, self.id)
   end
+
+  def matched?(other)
+    for match in self.matches do
+      if match.first_user_id == other.id || match.second_user_id == other_id
+        return true
+      end
+    end
+
+    return false
+  end
 end

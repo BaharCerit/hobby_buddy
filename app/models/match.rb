@@ -4,7 +4,9 @@ class Match < ApplicationRecord
   has_one :chatroom, dependent: :destroy
 
   def rejected!
-    self.update(status: "rejected")
+    # self.update(status: "rejected")
+    self.status = "rejected"
+    self.save!
   end
 
   def rejected?
