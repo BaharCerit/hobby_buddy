@@ -27,15 +27,19 @@
         data-swipe-target="swipeCard" data-swipe-profile-value=<%= user.id %>>
 
         <div class="profile-card">
-          <div class="img-card" style="background-image: url('<%= user.photo.attached? ? cl_image_path(user.photo.key) : asset_path('HobbyBuddy.png') %>');">
-          </div>
+          <% if user.photo.attached? %>
+            <%= cl_image_tag(user.photo.key, class: "img-card", alt: "avatar") %>
+          <% else %>
+            <img class="img-card" src="https://kitt.lewagon.com/placeholder/users/sarahlafer" alt="Change your image">
+
+          <% end %>
           <div class="profile-description m-4">
             <div class="name">
               <div class="name-title mb-4"><%= user.user_name%>'s interests</div>
               <div>
-                <% if @user_interests.present? %>
+                <% if user.user_interests.present? %>
                   <div class="user-added-interest d-flex flex-wrap mb-3">
-                    <% @user_interests.each do |user_interest| %>
+                    <% user.user_interests.each do |user_interest| %>
                       <a href="#" class="btn btn-sm button-find-buddies mb-2 me-2"><%= user_interest.interest.name %></a>
                     <% end %>
                   </div>
